@@ -1,0 +1,89 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Category index{% endblock %}
+
+{% block body %}
+     <body class="hold-transition sidebar-mini layout-fixed">
+        <div class="wrapper">
+      
+         
+          
+  {% block content %}
+    <div class="content-wrapper">
+                <!-- Content Header (Page header) -->
+    <div class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+                <div class="col-sm-6">
+                  <h2 class="m-0">Category list</h2>
+                </div><!-- /.col -->
+                
+                
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item"><a href="home">Home</a></li>
+                     <li class="breadcrumb-item active">Category list</li>
+                </ol>
+            </div><!-- /.col -->
+        </div><!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </div>
+    <a class="btn btn-secondary mb-2 ml-4" href="{{ path('app_category1_new') }}"> 
+                <i class="fa fa-plus">
+                              </i> Add Category
+                              
+                            
+                          </a>
+    <div class="card card-secondary card-outline mx-3">
+    <div class="card-header text-center">
+
+    <table class="table">
+        <thead>
+            <tr>
+               <th> #</th>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Description</th>
+                
+            </tr>
+        </thead>
+        <tbody>
+        {% for category in categories %}
+            <tr>
+           <td class="text-left"> 
+                <div class="btn-group btn-group-sm">
+                          <a class="btn btn" href="{{ path('app_category1_show', 
+                          {'id': category.id})}}"><i class="fa fa-eye">
+                             </i>
+                             
+                            </a>
+                          <a class="btn btn" href="{{ path('app_category1_edit', 
+                          {'id': category.id}) }}"> <i class="fas fa-pencil-alt">
+                              </i>
+                              
+                            
+                          </a>
+                          <a class="btn btn" href="{{ path('app_category1_delete',
+                           {'id': category.id}) }}">
+                              <i class="fas fa-trash">
+                              </i>
+                              
+                          </a>
+                </div>
+            </td>
+                <td>{{ category.id }}</td>
+                <td>{{ category.nom }}</td>
+                <td>{{ category.Description }}</td>
+                
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    
+{% endblock %}
+{% endblock %}

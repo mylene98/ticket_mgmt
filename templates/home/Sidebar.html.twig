@@ -1,0 +1,86 @@
+{% block sidebar %}
+ <!-- Main Sidebar Container -->
+  <aside class="main-sidebar sidebar-dark-primary elevation-4">
+    <!-- Brand Logo -->
+    <a class="brand-link">
+      <img src="{{ asset('dist/img/Logo.png')}}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+      <span class="brand-text font-weight-light">GEStick</span>
+    </a>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <!-- Sidebar user panel (optional) -->
+      <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+        
+       
+          
+           
+      </div>
+
+      <!-- SidebarSearch Form -->
+      <div class="form-inline">
+        <div class="input-group" data-widget="sidebar-search">
+          <input class="form-control form-control-sidebar" type="search" placeholder="Search" aria-label="Search">
+          <div class="input-group-append">
+            <button class="btn btn-sidebar">
+              <i class="fas fa-search fa-fw"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sidebar Menu -->
+      <nav class="mt-2">
+        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+          <!-- Add icons to the links using the .nav-icon class
+               with font-awesome or any other icon font library -->
+          
+            <a href="{{ path('app_ticket_index') }}" class="nav-link ">
+              <i class="nav-icon fas fa-ticket-alt"></i>
+              <p>
+                Tickets
+              
+              </p>
+            </a>
+            
+            
+        
+         
+          
+            <a href="{{ path('app_category1_index') }}" class="nav-link ">
+              <i class="nav-icon fa fa-list-alt"></i>
+              <p>
+                Category
+               
+              </p>
+            </a>
+           
+          
+          
+            <a href="{{ path('app_user_index') }}"class="nav-link ">
+              <i class="nav-icon fas fa-user-alt"></i>
+              <p>
+                User
+            
+              </p>
+            </a>
+            
+
+            
+           
+           
+          
+            
+            
+              
+          
+          
+        
+         
+        </>
+      </nav>
+      <!-- /.sidebar-menu -->
+    </div>
+    <!-- /.sidebar -->
+  </aside>
+{% endblock %}

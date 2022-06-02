@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Ticket{% endblock %}
+
+{% block body %}
+     {% block content %}
+    <div class="content-wrapper">
+                <!-- Content Header (Page header) -->
+    <div class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+                <div class="col-sm-6">
+                  <h2 class="m-0">Edit tickets</h2>
+                </div><!-- /.col -->
+                
+                
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item"><a href="/">Home</a></li>
+                     <li class="breadcrumb-item active">Edit tickets</li>
+                </ol>
+            </div><!-- /.col -->
+        </div><!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </div>
+    <div class="card card-secondary card-outline mx-5">
+         <div class="card-header text-center">
+
+    {{ include('ticket/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('app_ticket_index') }}">back to list</a>
+</div>
+</div>
+    
+{% endblock %}
+{% endblock %}

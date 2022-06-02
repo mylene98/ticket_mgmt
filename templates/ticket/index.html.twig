@@ -1,0 +1,104 @@
+{% extends 'base.html.twig' %}
+
+
+{% block body %}
+     <body class="hold-transition sidebar-mini layout-fixed">
+        <div class="wrapper">
+      
+         
+          
+  {% block content %}
+    <div class="content-wrapper">
+                <!-- Content Header (Page header) -->
+    <div class="content-header">
+      <div class="container">
+        <div class="row mb-2">
+                <div class="col-sm-6">
+                  <h2 class="m-0">Tickets list</h2>
+                </div><!-- /.col -->
+                
+                
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item"><a href="home">Home</a></li>
+                     <li class="breadcrumb-item active">Tickets list</li>
+                </ol>
+            </div><!-- /.col -->
+        </div><!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </div>
+    <a class="btn btn-secondary mb-2 ml-4" href="{{ path('app_ticket_new') }}"> 
+                <i class="fa fa-plus"> 
+                              </i> Add Ticket 
+     </a>
+     <div class="card card-secondary card-outline mx-3">
+    <table class="table">
+        <thead>
+            <tr>
+               <th>#</th>
+                <th>Id</th>
+                 <th>Title</th>
+               
+                <th>Type</th>
+                <th>Category</th>
+                 <th>Priority</th>
+                <th>Demandeur</th>
+                <th>AssignedTo</th>
+                <th>Status</th>
+                <th>CreatedAt</th>
+                <th>UpdatedAt</th>
+                
+                
+            </tr>
+        </thead>
+        <tbody>
+        {% for ticket in tickets %}
+        <tr>
+           <td class="text-left "> 
+                <div class="btn-group btn-group-sm">
+                          <a class="btn btn" href="{{ path('app_ticket_show', 
+                          {'id': ticket.id})}}"><i class="fa fa-eye">
+                             </i>
+                             
+                            </a>
+                             
+                              <a class="btn btn" href="{{ path('app_ticket_edit', 
+                               {'id': ticket.id}) }}"> <i class="fas fa-pencil-alt">
+                               </i>
+                             
+                            
+                          </a>
+                          <a class="btn btn" href="{{ path('app_ticket_delete',
+                           {'id': ticket.id}) }}">
+                              <i class="fas fa-trash">
+                              </i>
+                              
+                          </a>
+                </div
+             </td>   
+                
+    
+            
+                <td>{{ ticket.id }}</td>
+                <td>{{ ticket.Title }}</td>
+                  <td>{{ ticket.type }}</td>
+                  <td>{{ ticket.Category }}</td>
+                   <td>{{ ticket.priority }}</td>
+               
+                <td>{{ ticket.Demandeur }}</td>
+                <td>{{ ticket.AssignedTo }}</td>
+                  <td>{{ ticket.status }}</td>
+                <td>{{ ticket.createdAt ? ticket.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ ticket.updatedAt ? ticket.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
+              
+               
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="11">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    {% endblock %}
+     {% endblock %}

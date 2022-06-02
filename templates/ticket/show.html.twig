@@ -1,0 +1,114 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ticket{% endblock %}
+
+{% block body %}
+  <body class="hold-transition sidebar-mini layout-fixed">
+        <div class="wrapper">
+      
+         
+          
+  {% block content %}
+    <div class="content-wrapper">
+                <!-- Content Header (Page header) -->
+    <div class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+                <div class="col-sm-6">
+                  <h1 class="m-0">About Ticket</h1>
+                </div><!-- /.col -->
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item"><a href="/">Home</a></li>
+                     <li class="breadcrumb-item active">Ticket</li>
+                </ol>
+              <div class="btn-group btn-group-sm">  
+                
+              </div>   
+            </div><!-- /.col -->
+             
+        </div><!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </div>
+   
+ <div class="card card-secondary card-outline mx-5">
+ <div class="card-header text-center">
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ ticket.id }}</td>
+            </tr>
+            <tr>
+                <th>CreatedAt</th>
+                <td>{{ ticket.createdAt ? ticket.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>UpdatedAt</th>
+                <td>{{ ticket.updatedAt ? ticket.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Type</th>
+                <td>{{ ticket.type }}</td>
+            </tr>
+            <tr>
+                <th>Status</th>
+                <td>{{ ticket.status }}</td>
+            </tr>
+            <tr>
+                <th>AffectedAt</th>
+                <td>{{ ticket.affectedAt ? ticket.affectedAt|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Priority</th>
+                <td>{{ ticket.priority }}</td>
+            </tr>
+            <tr>
+                <th>Solution</th>
+                <td>{{ ticket.solution }}</td>
+            </tr>
+            <tr>
+                <th>Title</th>
+                <td>{{ ticket.Title }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ ticket.description }}</td>
+            </tr>
+        </tbody>
+    </table>
+</div> 
+     </div> 
+{% endblock %}
+   
+      
+        
+         
+             <a class="btn btn" href="{{ path('app_ticket_edit', {'id': ticket.id}) }}">
+                              <i class="fas fa-pencil-alt">
+                              </i>
+                              Edit
+                          </a>
+                          
+                              
+                              {{ include('ticket/_delete_form.html.twig') }}
+                          
+
+                               
+                          
+       
+
+      
+
+         
+       
+
+        </div>
+
+
+     
+    </body>
+
+   
+{% endblock %}

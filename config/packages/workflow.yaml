@@ -1,0 +1,33 @@
+framework:
+    workflows:
+        ticket:
+            type: 'state_machine'
+          
+            marking_store:
+                 type: 'method'
+                 property: 'status'
+            supports:
+                - App\Entity\Ticket
+            initial_marking: opened
+            places:
+                - opened # créée
+                - affected # affectée à un technicien
+                - in_progress # en cours de traitement
+                - completed # terminée
+                - closed # clôturée
+            transitions:
+                affect:
+                    from: opened
+                    to: affected
+                treat:
+                    from: affected
+                    to: in_progress
+                complete:
+                    from: in_progress
+                    to: completed
+                close:
+                    from: completed
+                    to: closed
+               
+               
+

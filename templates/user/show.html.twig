@@ -1,0 +1,109 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}page de {{user.fullName}}{% endblock %}
+
+
+{% block body %}
+<body class="hold-transition sidebar-mini layout-fixed">
+        <div class="wrapper">
+      
+         
+          
+  {% block content %}
+    <div class="content-wrapper">
+                <!-- Content Header (Page header) -->
+    <div class="content-header">
+      <div class="container">
+        <div class="row mb-2">
+                <div class="col-sm-6">
+                  <h1 class="m-0">  {{app.user.fullName}}</h1>
+                </div><!-- /.col -->
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item"><a href="/home">Home</a></li>
+                     <li class="breadcrumb-item active">User</li>
+                </ol>
+                
+            </div><!-- /.col -->
+             
+        </div><!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </div>
+   
+  <div class="card card-secondary card-outline mx-5">
+  <div class="card-header text-center">
+ 
+    <table class="table">
+     
+        <tbody>
+         <tr>
+                <th>Id</th>
+                <td>{{ user.id }}</td>
+            </tr>
+           
+            <tr>
+                <th>FullName</th>
+                <td>{{ user.fullName }}</td>
+            </tr>
+            <tr>
+                <th>Email</th>
+                <td>{{ user.Email }}</td>
+            </tr>
+             <tr>
+                <th>Picture</th>
+                <td>{{ user.picture }}</td>
+            </tr>
+           
+        </tbody>
+     
+      </table>
+   </div>
+      </div>
+   
+ 
+{% endblock %}
+   
+      
+        <a class="btn btn" href="{{ path('app_user_edit', {'id': user.id}) }}">
+                              <i class="fas fa-pencil-alt">
+                              </i>
+                              Edit
+                          </a>
+                          
+                              
+                              {{ include('user/_delete_form.html.twig') }}
+                          
+
+                               
+                          
+       
+
+      
+
+         
+       
+
+        }
+         
+          
+                              
+                             
+                          
+
+                               
+                          
+       
+
+      
+
+         
+       
+
+        </div>
+
+
+     
+    </body>
+
+   
+{% endblock %}
